@@ -1,0 +1,60 @@
+User: howto include libraries in a workspace
+
+GitHub Copilot: # Bibliotheken in einem C/C++-Workspace einbinden
+
+Es gibt mehrere Methoden, um Bibliotheken in deinem Workspace einzubinden:
+
+## 1. **Header-Dateien mit `#include`**
+```c
+#include <stdio.h>        // System-Bibliotheken (mit Winkelklammern)
+#include "mylib.h"        // Lokale Bibliotheken (mit Anführungszeichen)
+```
+
+## 2. **Compiler-Flags im Makefile**
+```makefile
+# Include-Verzeichnis angeben
+CFLAGS = -I./include -I/path/to/library/include
+
+# Bibliothek verlinken
+LDFLAGS = -L./lib -lmylib -lm
+```
+
+## 3. **Compiler-Flags in GCC**
+```bash
+gcc -I./include -L./lib myprogram.c -o myprogram -lmylib
+```
+
+## 4. **Struktur im Workspace**
+```
+workspace/
+├── src/
+│   ├── main.c
+│   └── mylib.c
+├── include/
+│   └── mylib.h
+├── lib/
+│   └── libmylib.a
+└── makefile
+```
+
+## 5. **Makefile-Beispiel**
+```makefile
+CC = gcc.exe
+CFLAGS = -I./include -g
+LDFLAGS = -L./lib
+
+TARGET = program.exe
+SOURCES = src/main.c
+OBJECTS = $(SOURCES:.c=.o)
+
+$(TARGET): $(OBJECTS)
+	$(CC) $(LDFLAGS) -o $@ $^ -lmylib
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+```
+
+## 6. **Externe Bibliotheken (z.B. GTK für dein gtk-demo)**
+```bash
+gcc main.c -o main `pkg-config --cflags --libs gtk+-3.0`
+```

@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../gtk-demo"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../binASCII"
+		}
+	]
+}

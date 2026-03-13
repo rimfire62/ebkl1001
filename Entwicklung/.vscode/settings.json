@@ -1,0 +1,27 @@
+{
+  "terminal.integrated.profiles.windows": {
+    "MSYS2 MinGW64": {
+      "path": "C:/Users/ebkl1001/Software/MySys/usr/bin/bash.exe",
+      "args": ["-l", "-i"],
+      "env": {
+        "MSYSTEM": "MINGW64",
+        "CHERE_INVOKING": "1",
+        "PATH": "C:/Users/ebkl1001/Software/MySys/mingw64/bin;C:/Users/ebkl1001/Software/MySys/usr/bin;${env:PATH}"
+      }
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "MSYS2 MinGW64",
+   "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+    "vim.incsearch": true,
+    "vim.smartRelativeLine": true,
+    "vim.surround": true,
+    "vim.useCtrlKeys": true,
+    "vim.handleKeys": {
+        "<C-d>": true,
+        "<C-u>": true
+    },
+    "vim.enable": true,
+    "vim.enableNeovim": false,
+    "editor.lineNumbers": "relative"
+}
